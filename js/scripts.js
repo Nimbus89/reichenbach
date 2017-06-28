@@ -43,7 +43,7 @@ $(".outputs").removeClass("invisible");
   $.ajax(
   {
       type: "get",
-      url: allOutput + ".php",
+      url: allOutput.toLowerCase() + ".php",
       cache: false,
       statusCode: {
         404: function () {
