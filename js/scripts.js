@@ -46,10 +46,10 @@ $(".outputs").removeClass("invisible");
       cache: false,
       statusCode: {
         404: function () {
-            pageExists();
+            pageNotExists();
         },
         200: function () {
-            pageNotExists();
+            pageExists();
         }
        },
       async: true
