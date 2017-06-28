@@ -6,6 +6,14 @@ function hex2a(hexx) {
     return str;
 }
 
+function pageExists(){
+  alert("yay")
+
+
+function pageNotExists(){
+  alert("boo");
+}
+
 var input_selectors = ".inputs input";
 var output_selectors = ".outputs input";
 var selectors = [input_selectors, output_selectors];
@@ -25,8 +33,27 @@ $("button").on("click", function(){
 
 $(".outputs").removeClass("invisible");
 
-  _.each($(input_selectors), function(input, index){
+  var allOutput = _.map($(input_selectors), function(input, index){
     var text = $(input).val();
     $($(output_selectors)[index]).val(hex2a(text));
+    return text;
+  }).join("");
+
+  $.ajax(
+  {
+      type: "get",
+      url: allOutput + ".php",
+      cache: false,
+      statusCode: {
+        404: function () {
+            pageExists();
+        },
+        200: function () {
+            pageNotExists();
+        }
+       },
+      async: true
   });
+
+
 });
