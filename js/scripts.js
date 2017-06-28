@@ -6,8 +6,10 @@ function hex2a(hexx) {
     return str;
 }
 
-function pageExists(){
-  alert("yay")
+function pageExists(url){
+  setTimeout(function(){
+    window.location.href = url;
+  }, 4000);
 }
 
 function pageNotExists(){
@@ -40,17 +42,19 @@ $(".outputs").removeClass("invisible");
     return letter;
   }).join("");
 
+  var url = allOutput.toLowerCase() + ".php";
+
   $.ajax(
   {
       type: "get",
-      url: allOutput.toLowerCase() + ".php",
+      url: url,
       cache: false,
       statusCode: {
         404: function () {
             pageNotExists();
         },
         200: function () {
-            pageExists();
+            pageExists(url);
         }
        },
       async: true
