@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en">
+<html id='main-page' lang="en">
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/styles.css">
