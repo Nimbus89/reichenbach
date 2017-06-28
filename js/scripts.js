@@ -35,8 +35,9 @@ $(".outputs").removeClass("invisible");
 
   var allOutput = _.map($(input_selectors), function(input, index){
     var text = $(input).val();
-    $($(output_selectors)[index]).val(hex2a(text));
-    return text;
+    var letter = hex2a(text);
+    $($(output_selectors)[index]).val(letter);
+    return letter;
   }).join("");
 
   $.ajax(
