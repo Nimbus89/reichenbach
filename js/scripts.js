@@ -8,7 +8,7 @@ function hex2a(hexx) {
 
 function pageExists(){
   alert("yay")
-
+}
 
 function pageNotExists(){
   alert("boo");
