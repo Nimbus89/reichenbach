@@ -89,3 +89,7 @@ button {
     text-align: center;
     transform: translateY(-50%);
 }
+
+#spinner {
+  margin-top : 150px;
+}

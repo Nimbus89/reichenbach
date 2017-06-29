@@ -6,14 +6,19 @@ function hex2a(hexx) {
     return str;
 }
 
-function pageExists(url){
+function pageExists(spinner, url){
   setTimeout(function(){
-    window.location.href = url;
+    $spinner.loadingSpinner("success");
+    setTimeout(function(){
+      window.location.href = url;
+    }, 2000);
   }, 4000);
 }
 
-function pageNotExists(){
-  alert("boo");
+function pageNotExists(spinner){
+  setTimeout(function(){
+    $spinner.loadingSpinner("failure");
+  }, 4000);
 }
 
 var input_selectors = ".inputs input";
@@ -44,6 +49,8 @@ $(".outputs").removeClass("invisible");
 
   var url = allOutput.toLowerCase() + ".php";
 
+  var $spinner = $("div#spinner").loadingSpinner({size:200});
+
   $.ajax(
   {
       type: "get",
@@ -51,10 +58,10 @@ $(".outputs").removeClass("invisible");
       cache: false,
       statusCode: {
         404: function () {
-            pageNotExists();
+            pageNotExists($spinner);
         },
         200: function () {
-            pageExists(url);
+            pageExists($spinner, url);
         }
        },
       async: true
