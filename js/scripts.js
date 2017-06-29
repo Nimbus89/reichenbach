@@ -60,6 +60,9 @@ $(".outputs").removeClass("invisible");
         404: function () {
             pageNotExists($spinner);
         },
+        403: function () {
+            pageNotExists($spinner);
+        },
         200: function () {
             pageExists($spinner, url);
         }
