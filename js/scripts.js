@@ -8,7 +8,7 @@ function hex2a(hexx) {
 
 function pageExists(spinner, url){
   setTimeout(function(){
-    $spinner.loadingSpinner("success");
+    spinner.loadingSpinner("success");
     setTimeout(function(){
       window.location.href = url;
     }, 2000);
@@ -17,7 +17,7 @@ function pageExists(spinner, url){
 
 function pageNotExists(spinner){
   setTimeout(function(){
-    $spinner.loadingSpinner("failure");
+    spinner.loadingSpinner("failure");
   }, 4000);
 }
 
