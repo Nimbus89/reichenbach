@@ -1,3 +1,5 @@
+var spinner = null;
+
 function hex2a(hexx) {
     var hex = hexx.toString();//force conversion
     var str = '';
@@ -6,7 +8,7 @@ function hex2a(hexx) {
     return str;
 }
 
-function pageExists(spinner, url){
+function pageExists(url){
   setTimeout(function(){
     spinner.loadingSpinner("success");
     setTimeout(function(){
@@ -15,7 +17,7 @@ function pageExists(spinner, url){
   }, 4000);
 }
 
-function pageNotExists(spinner){
+function pageNotExists(){
   setTimeout(function(){
     spinner.loadingSpinner("failure");
   }, 4000);
@@ -49,7 +51,11 @@ $(".outputs").removeClass("invisible");
 
   var url = allOutput.toLowerCase() + ".php";
 
-  var $spinner = $("div#spinner").loadingSpinner({size:200});
+  if(spinner === null){
+    spinner = $("div#spinner").loadingSpinner({size:200});
+  } else {
+    spinner.loadingSpinner("reset");
+  }
 
   $.ajax(
   {
@@ -58,13 +64,13 @@ $(".outputs").removeClass("invisible");
       cache: false,
       statusCode: {
         404: function () {
-            pageNotExists($spinner);
+            pageNotExists();
         },
         403: function () {
-            pageNotExists($spinner);
+            pageNotExists();
         },
         200: function () {
-            pageExists($spinner, url);
+            pageExists(url);
         }
        },
       async: true
