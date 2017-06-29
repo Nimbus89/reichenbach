@@ -14,13 +14,13 @@ function pageExists(url){
     setTimeout(function(){
       window.location.href = url;
     }, 2000);
-  }, 4000);
+  }, 2000);
 }
 
 function pageNotExists(){
   setTimeout(function(){
     spinner.loadingSpinner("failure");
-  }, 4000);
+  }, 2000);
 }
 
 var input_selectors = ".inputs input";
