@@ -48,7 +48,7 @@ function startMainScriptTimeouts(){
   timeoutThenMessage("You have probably guessed that we have a case for you.", 4000);
   timeoutThenMessage("Assistant detectives have already been arranged.", 4000);
   timeoutThenMessage("Go to the following location on the pre-arranged date.", 4000);
-  timeoutThenMessage("Our agents will pick you up, 11AM sharp.", 2000);
+  timeoutThenMessage("Our agents will pick you up, 10:55AM sharp.", 2000);
   timeoutThenMessage("I'll see you on the day, detective.", 2000);
 
   setTimeout(function(){
