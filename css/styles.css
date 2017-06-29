@@ -55,3 +55,37 @@ button {
 .invisible {
   visibility: hidden;
 }
+
+#reward {
+  text-align: center;
+}
+
+#overlay {
+  position:absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 180%;
+  text-align: center;
+  background-color: black;
+
+  -webkit-transition: opacity 5s ease-in-out;
+  -moz-transition: opacity 5s ease-in-out;
+  -ms-transition: opacity 5s ease-in-out;
+  -o-transition: opacity 5s ease-in-out;
+   opacity: 1;
+}
+
+#overlay.fade {
+     opacity: 0;
+}
+
+#center {
+  position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    transform: translateY(-50%);
+}
